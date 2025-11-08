@@ -7,7 +7,8 @@
 **Integrante: Luan Victor**
 
 
-Repositório Github:
+Repositório Github: https://github.com/luanv18/projeto_sistema_pacientes_1/tree/main
+
 Data de entrega: 08/11/2025
 
 ##  Requisitos Técnicos
@@ -332,3 +333,4 @@ def main():
 
 
 main()
+

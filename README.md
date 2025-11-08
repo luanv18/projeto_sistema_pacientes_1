@@ -1,4 +1,4 @@
-**Disciplina: Programação de Ciencia de Dados**
+**Disciplina: Programação de Ciência de Dados**
 
 **Curso: MBA Ciência de Dados**
 
@@ -333,5 +333,6 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
     
     
     main()
+
 
 

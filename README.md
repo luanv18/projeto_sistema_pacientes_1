@@ -1,6 +1,9 @@
 **Disciplina: Programação de Ciencia de Dados**
+
 **Curso: MBA Ciência de Dados**
+
 **Instrutor: Cassio Pinheiro**
+
 **Integrante: Luan Victor**
 
 
@@ -15,14 +18,10 @@ Tipos de dados, estruturas de controle, funções, compreensões, manipulação 
 
 
 
-## 📋 Objetivo
+##  Objetivo
 
 Projeto desenvolvido com foco na prática dos fundamentos da linguagem Python, abordando estruturas de dados, controle de fluxo, funções e manipulação de arquivos.
 O sistema tem como objetivo registrar pacientes e consultas médicas, armazenando as informações tanto em memória (durante a execução) quanto em arquivos CSV para persistência dos dados.
-
-## 🗺️ Diagrama de Contexto
-
-
 
 ## Funcionalidades por função
 
@@ -62,6 +61,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
             criararquivo.writerow(['cpf','nome','idade','sexo','telefone'])
 
 ///////////////////////////////////////////////////////////////////////
+
 2. **Cadastro de Pacientes**
 
 **A função *cadastrar_paciente()* realiza o registro de novos pacientes, recebendo as informações diretamente da função principal (*main()*) através de *input()*.**
@@ -100,6 +100,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
         print(f"Paciente {nome} cadastrado com sucesso!")
 
 ///////////////////////////////////////////////////////////////////////
+
 3. **Registro de Consultas**
 
 **A função *registrar_consulta()* é responsável por registrar uma nova consulta médica associada a um paciente já cadastrado.**
@@ -158,6 +159,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
     print(f"Consulta de {pacientes[cpf]['nome']} registrada com sucesso!\n")
 
 ///////////////////////////////////////////////////////////////////////
+
 4. **Calculo Doenças Comuns**
 
 **Nesta função, realizamos a leitura do arquivo *consultas.csv* para identificar e contar as doenças mais registradas no sistema.**
@@ -200,6 +202,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
         print(f"{i}. {doenca.capitalize()} - {quantidade} caso(s)")
 
 ///////////////////////////////////////////////////////////////////////
+
 5. **Atendimentos por Médico**
 
 **De forma semelhante à função “Doenças Mais Comuns”, esta função analisa o arquivo *consultas.csv* para contar o número de atendimentos realizados por cada médico.**
@@ -234,6 +237,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
             print(f"{i}. {medico} - {qtd} atendimentos(s)")
 
 ///////////////////////////////////////////////////////////////////////
+
 6.  **Historico paciente**
 
 **Nessa função, pesquisamos o histórico completo de consultas de um paciente específico.**
@@ -325,5 +329,6 @@ def main():
 
         else:
             print("Opção inválida! Tente novamente.")
+
 
 main()

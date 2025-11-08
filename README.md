@@ -40,26 +40,26 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
 
 3. **Caso o arquivo não exista, o bloco *except* é acionado, criando um novo arquivo com os cabeçalhos padrão.**
 
-    import csv
-    global pacientes
-
-    try:
-        with open("pacientes.csv", "r", newline="") as arquivo:
-            lerpacientes = csv.DictReader(arquivo)
-            for linha in lerpacientes:
-                cpf = linha["cpf"]
-                pacientes[cpf] = {
-                'nome' :linha['nome'],
-                'idade' :linha['idade'],
-                'sexo' :linha['sexo'],
-                'telefone' :linha['telefone']
-                }
-
-    except FileNotFoundError:
-        print('Arquivo "pacientes.csv" não encontrando, gerando um novo arquivo...')
-        with open("pacientes.csv", "w", newline="") as arquivo:
-            criararquivo = csv.writer(arquivo)
-            criararquivo.writerow(['cpf','nome','idade','sexo','telefone'])
+       import csv
+       global pacientes
+    
+       try:
+            with open("pacientes.csv", "r", newline="") as arquivo:
+                lerpacientes = csv.DictReader(arquivo)
+                for linha in lerpacientes:
+                    cpf = linha["cpf"]
+                    pacientes[cpf] = {
+                    'nome' :linha['nome'],
+                    'idade' :linha['idade'],
+                    'sexo' :linha['sexo'],
+                    'telefone' :linha['telefone']
+                    }
+    
+        except FileNotFoundError:
+            print('Arquivo "pacientes.csv" não encontrando, gerando um novo arquivo...')
+            with open("pacientes.csv", "w", newline="") as arquivo:
+                criararquivo = csv.writer(arquivo)
+                criararquivo.writerow(['cpf','nome','idade','sexo','telefone'])
 
 ///////////////////////////////////////////////////////////////////////
 
@@ -277,60 +277,61 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
 **Ela exibe o menu principal, permitindo ao usuário escolher entre as opções disponíveis (como cadastrar pacientes, registrar consultas, ver estatísticas e histórico).**
 **Com base na escolha, chama a função correspondente e mantém o programa em execução até que o usuário opte por sair.**
 
-def main():
-    """Função principal."""
+    def main():
+        """Função principal."""
+    
+        carregar_paciente()
+    
+        while True:
+            print("\n--- MENU PRINCIPAL ---")
+            print("1 - Cadastrar paciente")
+            print("2 - Registrar consulta")
+            print("3 - Listar pacientes")
+            print("4 - Histórico do paciente")
+            print("5 - Doenças mais comuns")
+            print("6 - Atendimentos por médico")
+            print("7 - Sair")
+            
+    
+            opcao = input("Escolha uma opção: ")
+    
+            if opcao == "1":
+                cpf = input("CPF: ")
+                nome = input('Nome: ')
+                idade = input('Idade: ')
+                sexo = input('Sexo: ')
+                telefone = input('Telefone: ')
+    
+                cadastrar_paciente(cpf, nome, idade, sexo, telefone)
+    
+                continuar = input("Deseja cadastrar outro paciente? (sim/nao): ").lower()
+                if continuar != "sim":
+                    print("Encerrando o cadastro...")
+    
+            elif opcao == "2":
+                registrar_consulta()
+    
+            elif opcao == "3":
+                print(pacientes)
+    
+            elif opcao == "4":
+                cpf = input("Digite o CPF do paciente: ")
+                gerar_historico_paciente(cpf)
+    
+            elif opcao == "5":
+                calcular_doencas_comuns()
+            
+            elif opcao == "6":
+                calcular_atendimentos_por_medico()
+    
+            elif opcao == "7":
+                print("Encerrando o sistema...")
+                break
+    
+            else:
+                print("Opção inválida! Tente novamente.")
+    
+    
+    main()
 
-    carregar_paciente()
-
-    while True:
-        print("\n--- MENU PRINCIPAL ---")
-        print("1 - Cadastrar paciente")
-        print("2 - Registrar consulta")
-        print("3 - Listar pacientes")
-        print("4 - Histórico do paciente")
-        print("5 - Doenças mais comuns")
-        print("6 - Atendimentos por médico")
-        print("7 - Sair")
-        
-
-        opcao = input("Escolha uma opção: ")
-
-        if opcao == "1":
-            cpf = input("CPF: ")
-            nome = input('Nome: ')
-            idade = input('Idade: ')
-            sexo = input('Sexo: ')
-            telefone = input('Telefone: ')
-
-            cadastrar_paciente(cpf, nome, idade, sexo, telefone)
-
-            continuar = input("Deseja cadastrar outro paciente? (sim/nao): ").lower()
-            if continuar != "sim":
-                print("Encerrando o cadastro...")
-
-        elif opcao == "2":
-            registrar_consulta()
-
-        elif opcao == "3":
-            print(pacientes)
-
-        elif opcao == "4":
-            cpf = input("Digite o CPF do paciente: ")
-            gerar_historico_paciente(cpf)
-
-        elif opcao == "5":
-            calcular_doencas_comuns()
-        
-        elif opcao == "6":
-            calcular_atendimentos_por_medico()
-
-        elif opcao == "7":
-            print("Encerrando o sistema...")
-            break
-
-        else:
-            print("Opção inválida! Tente novamente.")
-
-
-main()
 

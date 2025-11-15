@@ -13,10 +13,10 @@ Data de entrega: 08/11/2025
 
 ##  Requisitos Técnicos
 Linguagem: Python 3.12 +
+
 Tipos de dados, estruturas de controle, funções, compreensões, manipulação de arquivos
 
 # Sistema de Controle de Pacientes e Consultas
-
 
 
 ##  Objetivo
@@ -333,6 +333,7 @@ O sistema tem como objetivo registrar pacientes e consultas médicas, armazenand
     
     
     main()
+
 
 
 
